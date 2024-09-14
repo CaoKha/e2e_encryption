@@ -109,10 +109,11 @@ make clean
 
 If you need to cross-compile the Rust library to iOS or Android ,
 [Dinghy](https://github.com/sonos/dinghy) is a great tool. (Since I am working
-on a Linux machine or I do not have the required phone simulator SDKs,
-the setup is a pain in the butt). Dinghy simplifies cross-compilation by providing
-a set of tools and configurations to build Rust projects for mobile platforms.
+on a Linux machine and I do not have the required phone simulator SDKs,
+the setup is a pain in the butt).
 
+Dinghy simplifies cross-compilation by providing
+a set of tools and configurations to build Rust projects for mobile platforms.
 For more information on how to use dinghy, visit the [dinghy GitHub repository](https://github.com/sonos/dinghy).
 
 ## Downloading Precompiled CLI Binaries
@@ -122,12 +123,12 @@ for your operating system from the [releases](https://github.com/CaoKha/e2e_encr
 page. The available binaries are:
 
 ```text
-    Windows: .msi installer
-    Linux: .deb package
-    macOS: .tar.xz archive
+  Windows: .msi installer
+  Linux: .deb package
+  macOS: .tar.xz archive
 ```
 
-#### Installation Instructions
+### Installation Instructions
 
 - **Windows**: Download the .msi file and run the installer to set up the CLI on
   your system.
