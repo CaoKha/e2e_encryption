@@ -13,7 +13,7 @@ const PRIVATE_KEY_PATH: &str =
 #[derive(Parser)]
 #[command(
     name = "E2E encryption CLI",
-    version = "0.1.0",
+    version = env!("E2EE_CLI_VERSION"),
     about = "CLI tool to encrypt and decrypt messages using RSA encryption"
 )]
 struct Cli {

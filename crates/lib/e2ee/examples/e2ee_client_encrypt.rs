@@ -8,7 +8,7 @@ const PUBLIC_KEY_PATH: &str =
 #[derive(Parser, Debug)]
 #[command(
     name = "E2E encryption",
-    version = "0.1.0",
+    version = env!("E2EE_LIB_VERSION"),
     about = "Encrypts a message client side using RSA encryption"
 )]
 struct CliArgs {

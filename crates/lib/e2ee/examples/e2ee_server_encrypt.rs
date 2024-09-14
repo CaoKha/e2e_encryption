@@ -5,7 +5,7 @@ use e2ee::server::{E2ee, KeySize};
 #[derive(Parser, Debug)]
 #[command(
     name = "E2E encryption",
-    version = "0.1.0",
+    version = env!("E2EE_LIB_VERSION"),
     about = "Encrypts a message server side using RSA encryption"
 )]
 struct CliArgs {
