@@ -1,0 +1,23 @@
+name: Setup Rust
+description: Setup Rust with specified toolchain, target and components.
+inputs:
+  toolchain:
+    description: 'Toolchain'
+    default: stable
+    required: true
+  target:
+    description: 'Target'
+    required: true
+  components:
+    description: 'Components'
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Install Rust toolchain
+      uses: dtolnay/rust-toolchain@master
+      with:
+        toolchain: ${{ inputs.toolchain }}
+        target: ${{ inputs.target }}
+        components: ${{ inputs.components }}

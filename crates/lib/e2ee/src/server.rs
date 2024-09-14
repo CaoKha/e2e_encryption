@@ -13,16 +13,16 @@ use std::{fs::File, io::Write};
 /// A struct representing the End-to-End Encryption (E2EE) system on the server side.
 ///
 /// This struct manages the full lifecycle of key management and encryption operations. It includes:
-/// 
+///
 /// - **Key Generation**: Generates a key pair (public and private keys) for encryption and decryption.
 /// - **Encryption**: Encrypts messages using the server's public key.
 /// - **Decryption**: Decrypts messages using the server's private key.
 ///
-/// The server side E2EE system requires both a private key and a public key to function correctly. 
-/// The private key is used for decryption, while the public key is used for encryption. 
+/// The server side E2EE system requires both a private key and a public key to function correctly.
+/// The private key is used for decryption, while the public key is used for encryption.
 ///
 /// The `E2ee` struct includes the following fields:
-/// 
+///
 /// - `private_key`: The RSA private key used for decrypting messages.
 /// - `public_key`: The RSA public key used for encrypting messages.
 /// - `private_key_pem`: The PEM-encoded private key as a string.
@@ -316,12 +316,14 @@ impl E2ee {
         private_key_file_path: &str,
         public_key_file_path: &str,
     ) -> E2eeResult<()> {
-        let mut private_key_file = File::create(private_key_file_path).map_err(|_| {
-            E2eeError::FileWriteError("Failed to create private key file".into())
-        })?;
-        let mut public_key_file = File::create(public_key_file_path).map_err(|_| {
-            E2eeError::FileWriteError("Failed to create public key file".into())
-        })?;
+        let mut private_key_file =
+            File::create(private_key_file_path).map_err(|_| {
+                E2eeError::FileWriteError("Failed to create private key file".into())
+            })?;
+        let mut public_key_file =
+            File::create(public_key_file_path).map_err(|_| {
+                E2eeError::FileWriteError("Failed to create public key file".into())
+            })?;
 
         private_key_file
             .write_all(self.private_key_pem.as_bytes())

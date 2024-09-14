@@ -3,14 +3,14 @@
 /// This module provides C-compatible functions to interact with the `E2ee` and `PublicE2ee` structs.
 /// These functions allow other programming languages to use the encryption and decryption capabilities
 /// provided by the library. The functions utilize pointers to manage memory across the FFI boundary.
-/// 
+///
 /// # Safety
 ///
 /// Many functions in this module involve unsafe code due to the interaction with raw pointers and C-style strings.
 /// It's important to ensure that all pointers passed into these functions are valid and non-null to avoid
 /// undefined behavior. Additionally, the caller must free any allocated memory using the appropriate functions
 /// provided in this module (e.g., `e2ee_server_free`, `e2ee_client_free`).
-/// 
+///
 /// # Functions
 ///
 /// - `e2ee_server_new`: Creates a new `E2ee` instance with a specified key size.
@@ -32,7 +32,7 @@ use std::os::raw::{c_char, c_int};
 /// Creates a new `E2ee` instance with the specified RSA key size.
 ///
 /// # Arguments
-/// 
+///
 /// * `key_size` - The RSA key size (1024, 2048, 3072, 4096).
 ///
 /// # Returns
@@ -61,7 +61,7 @@ pub extern "C" fn e2ee_server_new(key_size: c_int) -> *mut E2ee {
 /// Creates a new `E2ee` instance from PEM-encoded private and public keys.
 ///
 /// # Arguments
-/// 
+///
 /// * `private_key_pem` - A pointer to a C string containing the PEM-encoded private key.
 /// * `public_key_pem` - A pointer to a C string containing the PEM-encoded public key.
 ///
@@ -255,16 +255,16 @@ pub unsafe extern "C" fn e2ee_server_get_private_key_pem(
 /// Frees the memory associated with an `E2ee` server object.
 ///
 /// This function should be called to release the memory of an `E2ee` server object that was previously
-/// created using Rust code and returned to C. After calling this function, the pointer to the `E2ee` 
+/// created using Rust code and returned to C. After calling this function, the pointer to the `E2ee`
 /// server object becomes invalid and must not be used again.
 ///
 /// # Safety
 ///
-/// - The `e2ee_server` pointer must be valid and non-null. This function performs an unsafe operation by dereferencing 
+/// - The `e2ee_server` pointer must be valid and non-null. This function performs an unsafe operation by dereferencing
 ///   the pointer and taking ownership of the memory, which is then deallocated using Rust's `Box::from_raw()`.
-/// - This function should only be called once for each `e2ee_server` object. Calling this function multiple times 
+/// - This function should only be called once for each `e2ee_server` object. Calling this function multiple times
 ///   with the same pointer will lead to undefined behavior, as the memory will have already been freed.
-/// - The caller must ensure that the pointer was originally allocated by Rust using `Box::into_raw()`. Passing any other 
+/// - The caller must ensure that the pointer was originally allocated by Rust using `Box::into_raw()`. Passing any other
 ///   pointer (e.g., a pointer allocated by C or other means) to this function may result in undefined behavior.
 ///
 /// # Parameters
@@ -280,7 +280,7 @@ pub unsafe extern "C" fn e2ee_server_get_private_key_pem(
 ///
 /// # Notes
 ///
-/// After this function is called, the memory associated with `e2ee_server` is freed. The caller should not attempt to 
+/// After this function is called, the memory associated with `e2ee_server` is freed. The caller should not attempt to
 /// access the `e2ee_server` pointer afterward, as doing so will result in a use-after-free error.
 #[cfg(feature = "ffi")]
 #[no_mangle]
@@ -295,16 +295,16 @@ pub unsafe extern "C" fn e2ee_server_free(e2ee_server: *mut E2ee) {
 /// Frees the memory associated with an `PublicE2ee` client object.
 ///
 /// This function should be called to release the memory of a `PublicE2ee` client object that was previously
-/// created using Rust code and returned to C. After calling this function, the pointer to the `PublicE2ee` 
+/// created using Rust code and returned to C. After calling this function, the pointer to the `PublicE2ee`
 /// client object becomes invalid and must not be used again.
 ///
 /// # Safety
 ///
-/// - The `e2ee_client` pointer must be valid and non-null. This function performs an unsafe operation by dereferencing 
+/// - The `e2ee_client` pointer must be valid and non-null. This function performs an unsafe operation by dereferencing
 ///   the pointer and taking ownership of the memory, which is then deallocated using Rust's `Box::from_raw()`.
-/// - This function should only be called once for each `e2ee_client` object. Calling this function multiple times 
+/// - This function should only be called once for each `e2ee_client` object. Calling this function multiple times
 ///   with the same pointer will lead to undefined behavior, as the memory will have already been freed.
-/// - The caller must ensure that the pointer was originally allocated by Rust using `Box::into_raw()`. Passing any other 
+/// - The caller must ensure that the pointer was originally allocated by Rust using `Box::into_raw()`. Passing any other
 ///   pointer (e.g., a pointer allocated by C or other means) to this function may result in undefined behavior.
 ///
 /// # Parameters
@@ -320,7 +320,7 @@ pub unsafe extern "C" fn e2ee_server_free(e2ee_server: *mut E2ee) {
 ///
 /// # Notes
 ///
-/// After this function is called, the memory associated with `e2ee_client` is freed. The caller should not attempt to 
+/// After this function is called, the memory associated with `e2ee_client` is freed. The caller should not attempt to
 /// access the `e2ee_client` pointer afterward, as doing so will result in a use-after-free error.
 #[cfg(feature = "ffi")]
 #[no_mangle]
@@ -340,11 +340,11 @@ pub unsafe extern "C" fn e2ee_client_free(e2ee_client: *mut PublicE2ee) {
 ///
 /// # Safety
 ///
-/// The `s` pointer must be valid and non-null. This function performs an unsafe operation by dereferencing the pointer 
+/// The `s` pointer must be valid and non-null. This function performs an unsafe operation by dereferencing the pointer
 /// and transferring ownership of the memory to the Rust side. After the function is called, the memory is deallocated.
 /// Using the `s` pointer after this call is undefined behavior.
 ///
-/// The function assumes that the pointer was originally created by Rust using `CString::into_raw()`. Passing any 
+/// The function assumes that the pointer was originally created by Rust using `CString::into_raw()`. Passing any
 /// other pointer may result in undefined behavior.
 ///
 /// # Example

@@ -17,7 +17,4 @@ pub enum PublicE2eeError {
 
     #[error("Decoding error: {0}")]
     Decoding(#[from] base64::DecodeError),
-
-    // #[error("File write error: {0}")]
-    // FileWriteError(String),
 }
