@@ -32,3 +32,6 @@ report.*.json
 *.jpg
 *.gif
 *.png
+
+public.pem
+private.pem

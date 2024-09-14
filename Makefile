@@ -47,7 +47,7 @@ test-cross-x86_64-unknown-linux-gnu:
 	cross test -p e2ee --tests --target x86_64-unknown-linux-gnu
 
 test-cross-x86_64-pc-windows-gnu:
-	cross test -p e2ee --tests --target x86_64-pc-windows-gnu # bug: bcryptprimitives.dll (needed for encryption) not found (wine doesn't include it. But real Windows system does)
+	cross test -p e2ee --tests --target x86_64-pc-windows-gnu # bug: bcryptprimitives.dll (needed for encryption) not found (wine doesn't include it. but real windows system does)
 
 # Example targets (unchanged)
 example-e2ee-simple:
@@ -73,6 +73,8 @@ example-e2ee-client-encrypt:
 example-e2ee-server-decrypt:
 	cargo run -p e2ee --example e2ee_server_decrypt
 
+cli-generate-keys:
+	cargo run -p e2ee-cli -- generate-keys
 # Help target
 help:
 	@echo "Available targets:"
