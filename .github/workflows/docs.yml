@@ -1,0 +1,32 @@
+name: Build and Deploy Docs
+
+on:
+  push:
+    branches:
+      - master  # Change to your default branch
+    tags:
+      - '*'   # Build docs on every tag
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Install mdbook (optional, if you use it for additional docs)
+        run: cargo install mdbook
+
+      - name: Build documentation
+        run: cargo doc --no-deps --all-features
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./target/doc

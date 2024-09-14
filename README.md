@@ -3,9 +3,10 @@
 [![Rust](https://github.com/CaoKha/e2e_encryption/actions/workflows/rust.yml/badge.svg)](https://github.com/CaoKha/e2e_encryption/actions/workflows/rust.yml)
 [![Release](https://github.com/CaoKha/e2e_encryption/actions/workflows/release.yml/badge.svg)](https://github.com/CaoKha/e2e_encryption/actions/workflows/release.yml)
 
-This project is an End-to-End Encryption (E2EE) Software Development Kit (SDK) and
-Command Line Interface (CLI) implemented in Rust. It provides tools and libraries
-for secure communication. Currently, it supports only Linux, Windows and macOS desktop.
+This project is my attempt to build an End-to-End Encryption (E2EE)
+Software Development Kit (SDK) and Command Line Interface (CLI)
+implemented in Rust. It uses [RSA](https://docs.rs/rsa/latest/rsa/) libraries to
+perform encryption and decryption. Currently, it supports only Linux, Windows and macOS desktop.
 
 ## Prerequisites
 
@@ -125,7 +126,7 @@ page. The available binaries are:
 ```text
   Windows: .msi installer
   Linux: .deb package
-  macOS: .tar.xz archive
+  MacOS: .tar.xz archive
 ```
 
 ### Installation Instructions
