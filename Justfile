@@ -8,8 +8,8 @@ example-e2ee-client-encrypt message:
   cargo run -p e2ee --example e2ee_client_encrypt -- -m "{{message}}"
 example-e2ee-server-decrypt:
   cargo run -p e2ee --example e2ee_server_decrypt
-e2ee-lib-test:
+test-e2ee-lib:
   cargo test -p e2ee --tests 
-e2ee-doc-test:
+test-e2ee-doc:
   cargo test -p e2ee --doc
 
