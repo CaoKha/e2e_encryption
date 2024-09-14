@@ -191,7 +191,7 @@ dependencies = [
 
 [[package]]
 name = "e2ee"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "base64",
  "clap",
@@ -201,7 +201,7 @@ dependencies = [
 
 [[package]]
 name = "e2ee-cli"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "anyhow",
  "clap",
