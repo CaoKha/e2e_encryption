@@ -1,6 +1,7 @@
 # E2E Encryption SDK and CLI
 
 [![Rust](https://github.com/CaoKha/e2e_encryption/actions/workflows/rust.yml/badge.svg)](https://github.com/CaoKha/e2e_encryption/actions/workflows/rust.yml)
+[![Release](https://github.com/CaoKha/e2e_encryption/actions/workflows/release.yml/badge.svg)](https://github.com/CaoKha/e2e_encryption/actions/workflows/release.yml)
 
 This project is an End-to-End Encryption (E2EE) Software Development Kit (SDK) and
 Command Line Interface (CLI) implemented in Rust. It provides tools and libraries
