@@ -10,6 +10,9 @@ license = "MIT"
 name = "e2ee"
 crate-type = ["lib", "cdylib", "staticlib"]
 
+[features]
+ffi = []
+
 [dependencies]
 base64 = "0.22.1"
 rsa = { version = "0.9.6", features = ["sha2", "pem"] }

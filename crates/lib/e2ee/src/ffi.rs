@@ -42,6 +42,7 @@ use std::os::raw::{c_char, c_int};
 /// # Safety
 ///
 /// This function is safe as long as the `key_size` parameter is a valid RSA key size.
+#[cfg(feature = "ffi")]
 #[no_mangle]
 pub extern "C" fn e2ee_server_new(key_size: c_int) -> *mut E2ee {
     let key_size = match key_size {
@@ -71,6 +72,7 @@ pub extern "C" fn e2ee_server_new(key_size: c_int) -> *mut E2ee {
 /// # Safety
 ///
 /// The provided pointers must be valid C strings. The function assumes they are non-null and contain valid UTF-8 data.
+#[cfg(feature = "ffi")]
 #[no_mangle]
 pub unsafe extern "C" fn e2ee_server_new_from_pem(
     private_key_pem: *const c_char,
@@ -98,6 +100,7 @@ pub unsafe extern "C" fn e2ee_server_new_from_pem(
 /// # Safety
 ///
 /// The `public_key` pointer must be a valid C string. The function assumes the provided pointer is non-null and contains valid UTF-8 data.
+#[cfg(feature = "ffi")]
 #[no_mangle]
 pub unsafe extern "C" fn e2ee_client_new_from_public_pem(
     public_key: *const c_char,
@@ -124,6 +127,7 @@ pub unsafe extern "C" fn e2ee_client_new_from_public_pem(
 /// # Safety
 ///
 /// The `e2ee_server` and `message` pointers must be valid and non-null.
+#[cfg(feature = "ffi")]
 #[no_mangle]
 pub unsafe extern "C" fn e2ee_server_encrypt(
     e2ee_server: *mut E2ee,
@@ -152,6 +156,7 @@ pub unsafe extern "C" fn e2ee_server_encrypt(
 /// # Safety
 ///
 /// The `e2ee_client` and `message` pointers must be valid and non-null.
+#[cfg(feature = "ffi")]
 #[no_mangle]
 pub unsafe extern "C" fn e2ee_client_encrypt(
     e2ee_client: *mut PublicE2ee,
@@ -180,6 +185,7 @@ pub unsafe extern "C" fn e2ee_client_encrypt(
 /// # Safety
 ///
 /// The `e2ee_server` and `ciphertext` pointers must be valid and non-null.
+#[cfg(feature = "ffi")]
 #[no_mangle]
 pub unsafe extern "C" fn e2ee_server_decrypt(
     e2ee_server: *mut E2ee,
@@ -209,6 +215,7 @@ pub unsafe extern "C" fn e2ee_server_decrypt(
 /// # Returns
 ///
 /// A C string containing the public key in PEM format. If an error occurs, returns a null pointer.
+#[cfg(feature = "ffi")]
 #[no_mangle]
 pub unsafe extern "C" fn e2ee_server_get_public_key_pem(
     e2ee_server: *mut E2ee,
@@ -234,6 +241,7 @@ pub unsafe extern "C" fn e2ee_server_get_public_key_pem(
 /// # Returns
 ///
 /// A C string containing the private key in PEM format. If an error occurs, returns a null pointer.
+#[cfg(feature = "ffi")]
 #[no_mangle]
 pub unsafe extern "C" fn e2ee_server_get_private_key_pem(
     e2ee_server: *mut E2ee,
@@ -274,6 +282,7 @@ pub unsafe extern "C" fn e2ee_server_get_private_key_pem(
 ///
 /// After this function is called, the memory associated with `e2ee_server` is freed. The caller should not attempt to 
 /// access the `e2ee_server` pointer afterward, as doing so will result in a use-after-free error.
+#[cfg(feature = "ffi")]
 #[no_mangle]
 pub unsafe extern "C" fn e2ee_server_free(e2ee_server: *mut E2ee) {
     if !e2ee_server.is_null() {
@@ -313,6 +322,7 @@ pub unsafe extern "C" fn e2ee_server_free(e2ee_server: *mut E2ee) {
 ///
 /// After this function is called, the memory associated with `e2ee_client` is freed. The caller should not attempt to 
 /// access the `e2ee_client` pointer afterward, as doing so will result in a use-after-free error.
+#[cfg(feature = "ffi")]
 #[no_mangle]
 pub unsafe extern "C" fn e2ee_client_free(e2ee_client: *mut PublicE2ee) {
     if !e2ee_client.is_null() {
@@ -351,6 +361,7 @@ pub unsafe extern "C" fn e2ee_client_free(e2ee_client: *mut PublicE2ee) {
 /// # Panics
 ///
 /// This function may panic if the pointer is invalid or the memory was not allocated by Rust's `CString`.
+#[cfg(feature = "ffi")]
 #[no_mangle]
 pub unsafe extern "C" fn e2ee_server_free_string(s: *mut c_char) {
     unsafe {
@@ -359,6 +370,7 @@ pub unsafe extern "C" fn e2ee_server_free_string(s: *mut c_char) {
 }
 
 #[cfg(test)]
+#[cfg(feature = "ffi")]
 mod tests {
     use super::*;
     // use crate::client::PublicE2ee;
