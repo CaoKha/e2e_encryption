@@ -107,11 +107,7 @@ make help
 │   ├── cli
 │   │   └── e2ee
 │   │       ├── Cargo.toml
-│   │       ├── files
-│   │       │   ├── private.pem
-│   │       │   └── public.pem
 │   │       └── src
-│   │           ├── error.rs
 │   │           └── main.rs
 │   └── lib
 │       └── e2ee
