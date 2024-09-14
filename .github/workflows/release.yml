@@ -49,10 +49,10 @@ jobs:
     - name: Package for Windows
       if: matrix.os == 'windows-latest'
       run: |
-        cargo wix init crates/cli/e2ee/Cargo.toml
-        cargo wix
+        cargo wix init -p e2ee-cli
+        cargo wix -p e2ee-cli
         mkdir -p artifacts
-        mv target/*.msi artifacts/
+        mv target/wix/*.msi artifacts/
 
     - name: Upload Artifacts
       uses: actions/upload-artifact@v4
