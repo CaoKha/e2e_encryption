@@ -1,5 +1,7 @@
 example-e2ee-simple:
   cargo run -p e2ee --example e2ee_simple
+example-e2ee-key-generation:
+  cargo run -p e2ee --example e2ee_key_generation
 example-e2ee-server-encrypt message size:
   cargo run -p e2ee --example e2ee_server_encrypt -- -m "{{message}}" -s {{size}}
 example-e2ee-client-encrypt message:
