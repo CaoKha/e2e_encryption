@@ -1,6 +1,6 @@
 [package]
 name = "e2ee-cli"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 license = "MIT"
 authors = ["Kha Nguyen <nguyencaokha131995@gmail.com>"]
@@ -20,7 +20,7 @@ clap = { version = "4.5", features = ["derive"] }
 name = "e2ee-cli"
 identifier = "com.caokha.e2eecli"
 icon = ["lock32x32.png", "lock128x128.png", "lock128x128@2x.png"]
-version = "1.0.0"
+version = "0.1.1"
 resources = ["files/*.pem"]
 copyright = "Copyright (c) Kha Nguyen 2024. All rights reserved."
 category = "Developer Tool"

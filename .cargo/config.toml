@@ -1,6 +1,6 @@
 [env]
-E2EE_CLI_VERSION = "0.1.0"
-E2EE_LIB_VERSION = "0.1.0"
+E2EE_CLI_VERSION = "0.1.1"
+E2EE_LIB_VERSION = "0.1.1"
 
 [target.x86_64-pc-windows-msvc]
 rustflags = ["-C", "target-feature=+crt-static"]
