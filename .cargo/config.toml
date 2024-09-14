@@ -2,6 +2,10 @@
 E2EE_CLI_VERSION = "0.1.1"
 E2EE_LIB_VERSION = "0.1.1"
 
+# For phone simulators
+# [target.'cfg(all(any(target_arch="aarch64",target_arch="x86_64"),target_vendor="apple",any(target_os="ios",target_os="tvos",target_os="apple-watchos")))']
+# runner = "cargo dinghy runner --"
+
 [target.x86_64-pc-windows-msvc]
 rustflags = ["-C", "target-feature=+crt-static"]
 
