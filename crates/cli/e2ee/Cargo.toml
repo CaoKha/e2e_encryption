@@ -1,0 +1,15 @@
+[package]
+name = "e2ee-cli"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "e2ee-cli"
+path = "src/main.rs"
+
+[dependencies]
+e2ee = { path = "../../lib/e2ee" }
+thiserror = { version = "1.0" }
+anyhow = "1.0"
+clap = { version = "4.5", features = ["derive"] }
+
