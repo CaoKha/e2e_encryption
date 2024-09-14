@@ -24,11 +24,13 @@ jobs:
     - name: Set up Rust
       uses: dtolnay/rust-toolchain@stable
 
-    - name: Install dependencies
+    - name: Install cargo-bundle for Linux/macOS
+      if: matrix.os == 'ubuntu-latest' || matrix.os == 'macos-latest'
       run: cargo install cargo-bundle
 
-    # - name: Build Rust project
-    #   run: cargo build --release
+    - name: Install cargo-wix for Windows
+      if: matrix.os == 'windows-latest'
+      run: cargo install cargo-wix
 
     - name: Package for Linux
       if: matrix.os == 'ubuntu-latest'
@@ -47,9 +49,9 @@ jobs:
     - name: Package for Windows
       if: matrix.os == 'windows-latest'
       run: |
-        cargo bundle --release
+        cargo wix --release
         mkdir -p artifacts
-        mv *.msi artifacts/
+        mv target/*.msi artifacts/
 
     - name: Upload Artifacts
       uses: actions/upload-artifact@v4
