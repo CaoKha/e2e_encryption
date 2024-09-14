@@ -1,6 +1,6 @@
-[package]
-name = "e2e_encryption"
-version = "0.1.0"
-edition = "2021"
+[workspace]
+members = ["crates/lib/e2ee", "crates/cli/e2ee"]
+resolver = "2"
 
-[dependencies]
+# [workspace.lints.rust]
+# unsafe_code = "forbid"
