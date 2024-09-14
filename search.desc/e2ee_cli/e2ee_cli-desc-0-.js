@@ -1,0 +1,1 @@
+searchState.loadedDescShard("e2ee_cli", 0, "Decrypt a ciphertext using a private RSA key\nEncrypt a message using a public RSA key\nGenerate a new pair of RSA keys and save them to files\nReturns the argument unchanged.\nReturns the argument unchanged.\nCalls <code>U::from(self)</code>.\nCalls <code>U::from(self)</code>.")
