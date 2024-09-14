@@ -1,0 +1,67 @@
+name: Build and Package CLI
+
+on:
+  push:
+    branches:
+      - release
+  pull_request:
+    branches:
+      - release
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os:
+          - macos-latest
+          - ubuntu-latest
+          - windows-latest
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Rust
+      uses: dtolnay/rust-toolchain@stable
+
+    - name: Install dependencies
+      run: |
+        if [ $RUNNER_OS = 'Linux' ]; then
+          sudo apt-get update
+          sudo apt-get install -y dpkg dpkg-dev libzma-dev
+          cargo install cargo-bundle
+        elif [ $RUNNER_OS = 'macOS' ]; then
+          cargo install cargo-bundle
+        elif [ $RUNNER_OS = 'Windows' ]; then
+          cargo install cargo-bundle
+        fi
+
+    # - name: Build Rust project
+    #   run: cargo build --release
+
+    - name: Package for Linux
+      if: matrix.os == 'ubuntu-latest'
+      run: |
+        cargo bundle --release
+        mkdir -p artifacts
+        mv target/release/bundle/deb/*.deb artifacts/
+
+    - name: Package for macOS
+      if: matrix.os == 'macos-latest'
+      run: |
+        cargo bundle --release 
+        mkdir -p artifacts
+        mv target/release/bundle/osx/*.app artifacts/
+
+    - name: Package for Windows
+      if: matrix.os == 'windows-latest'
+      run: |
+        cargo bundle --release
+        mkdir -p artifacts
+        mv target/release/bundle/msi/*.msi artifacts/
+
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: cli-artifacts
+        path: artifacts/

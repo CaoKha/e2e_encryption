@@ -3,6 +3,7 @@ name = "e2ee-cli"
 version = "0.1.0"
 edition = "2021"
 license = "MIT"
+authors = ["Kha Nguyen <nguyencaokha131995@gmail.com>"]
 
 [[bin]]
 name = "e2ee-cli"
@@ -13,3 +14,17 @@ e2ee = { path = "../../lib/e2ee" }
 thiserror = { version = "1.0" }
 anyhow = "1.0"
 clap = { version = "4.5", features = ["derive"] }
+
+[package.metadata.bundle]
+name = "e2ee-cli"
+identifier = "com.caokha.e2eecli"
+icon = ["lock32x32.png", "lock128x128.png", "lock128x128@2x.png"]
+version = "1.0.0"
+resources = ["files/*.pem"]
+copyright = "Copyright (c) Kha Nguyen 2024. All rights reserved."
+category = "Developer Tool"
+short_description = "E2EE CLI."
+long_description = """
+This is a CLI for End to End Encryption.
+"""
+osx_url_schemes = ["com.caokha.e2eecli"]
