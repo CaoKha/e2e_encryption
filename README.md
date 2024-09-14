@@ -150,6 +150,25 @@ tar -xvf path/to/e2ee-cli-aarch64-apple-darwin.tar.xz
 sudo mv e2ee-cli /usr/local/bin/
 ```
 
+## CLI Usage
+
+```bash
+❯ e2ee-cli -h
+CLI tool to encrypt and decrypt messages using RSA encryption
+
+Usage: e2ee-cli <COMMAND>
+
+Commands:
+  generate-keys  Generate a new pair of RSA keys and save them to files
+  encrypt        Encrypt a message using a public RSA key
+  decrypt        Decrypt a ciphertext using a private RSA key
+  help           Print this message or the help of the given subcommand(s)
+
+Options:
+  -h, --help     Print help (see more with '--help')
+  -V, --version  Print version
+```
+
 ## Project Structure
 
 ```text

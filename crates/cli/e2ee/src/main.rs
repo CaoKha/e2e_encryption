@@ -6,6 +6,10 @@ use e2ee::{
 };
 use std::path::PathBuf;
 
+/// Command Line Interface for End-to-End Encryption
+///
+/// This CLI tool allows you to generate RSA key pairs, encrypt messages with a public key,
+/// and decrypt messages with a private key. The tool uses RSA encryption for secure communication
 #[derive(Parser)]
 #[command(
     name = "E2E encryption CLI",
