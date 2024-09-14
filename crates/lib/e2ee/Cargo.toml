@@ -1,0 +1,17 @@
+[package]
+name = "e2ee"
+version = "0.1.0"
+authors = ["Kha Nguyen <nguyencaokha131995@gmail.com>"]
+edition = "2021"
+description = "A simple End-to-End Encryption library in Rust"
+license = "MIT"
+
+[lib]
+name = "e2ee"
+crate-type = ["lib", "cdylib", "staticlib"]
+
+[dependencies]
+base64 = "0.22.1"
+rsa = { version = "0.9.6", features = ["sha2", "pem"] }
+thiserror = "1.0.63"
+clap = { version = "4.5", features = ["derive"] }
