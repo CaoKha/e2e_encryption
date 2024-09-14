@@ -6,7 +6,8 @@
 This project is my attempt to build an End-to-End Encryption (E2EE)
 Software Development Kit (SDK) and Command Line Interface (CLI)
 implemented in Rust. It uses [RSA](https://docs.rs/rsa/latest/rsa/) libraries to
-perform encryption and decryption. Currently, it supports only Linux, Windows and macOS desktop.
+perform encryption and decryption. Currently, it supports only Linux, Windows
+and macOS desktop.
 
 ## Prerequisites
 
@@ -100,7 +101,7 @@ make example-e2ee-server-decrypt
 
 ### Cleaning Build Artifacts
 
-To clean all build artifacts (This is just deletes the `target` folder):
+To clean all build artifacts (This just deletes the `target` folder):
 
 ```bash
 make clean
