@@ -7,7 +7,7 @@ fn main() {
     // Encrypt a message
     let message = "This is a secret message.\nCan you handle line breaks ?\nSpecial characters @!#@$#%^$&^%% ?";
     let encrypted_message = e2ee.encrypt(message).expect("Encryption failed");
-    println!("Encrypted message: {}", encrypted_message);
+    println!("Encrypted message:\n{}", encrypted_message);
 
     // Decrypt the message
     let decrypted_message =

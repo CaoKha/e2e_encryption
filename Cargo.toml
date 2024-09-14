@@ -1,6 +1,3 @@
 [workspace]
 members = ["crates/lib/e2ee", "crates/cli/e2ee"]
 resolver = "2"
-
-# [workspace.lints.rust]
-# unsafe_code = "forbid"
