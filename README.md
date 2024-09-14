@@ -118,7 +118,8 @@ For more information on how to use dinghy, visit the [dinghy GitHub repository](
 ## Downloading Precompiled CLI Binaries
 
 To use the precompiled binaries for the CLI, you can download the appropriate version
-for your operating system from the releases page. The available binaries are:
+for your operating system from the [releases](https://github.com/CaoKha/e2e_encryption/releases)
+page. The available binaries are:
 
 ```text
     Windows: .msi installer
@@ -142,7 +143,7 @@ sudo dpkg -i path/to/e2ee-cli_version.deb
   included in your PATH:
 
 ```bash
-tar -xvf path/to/e2ee-cli_version.tar.xz
+tar -xvf path/to/e2ee-cli-aarch64-apple-darwin.tar.xz
 sudo mv e2ee-cli /usr/local/bin/
 ```
 
