@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Bundle Version="1.0.0" UpgradeCode="86493B09-9186-4C8C-BB25-8E748722674D">
+    <BootstrapperApplicationRef Id="WixStandardBootstrapperApplication.RtfLicense"/>
+    <Chain>
+      <MsiPackage SourceFile="crates\cli\e2ee\target\wix\e2ee-cli-0.1.0-x86_64.msi" />
+    </Chain>
+  </Bundle>
+</Wix>

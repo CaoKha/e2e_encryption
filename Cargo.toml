@@ -2,11 +2,11 @@
 members = ["crates/lib/e2ee", "crates/cli/e2ee"]
 resolver = "2"
 
-[workspace.metadata.wix]
-compiler-args = ["-nologo", "-wn"]
-culture = "Fr-Fr"
-dbg-build = false
-dbg-name = false
-linker-args = ["-nologo"]
-name = "e2ee-cli"
-include = ["crates/cli/e2ee/wix/main.wxs"]
+# [workspace.metadata.wix]
+# compiler-args = ["-nologo", "-wn"]
+# culture = "Fr-Fr"
+# dbg-build = false
+# dbg-name = false
+# linker-args = ["-nologo"]
+# name = "e2ee-cli"
+# include = ["crates/cli/e2ee/wix/main.wxs"]
