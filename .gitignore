@@ -1,6 +1,6 @@
 # By Default, Ignore any .*, except .gitignore
-.*
-!.gitignore
+# .*
+# !.gitignore
 
 # -- Rust
 # For .cargo/config.toml

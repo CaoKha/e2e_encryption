@@ -8,15 +8,18 @@ for secure communication. Currently, it supports only Linux desktop.
 
 Before you begin, ensure you have the following installed on your system:
 
-1. **Rust**: This project is built with Rust. If you don't have Rust installed, you can install it from [https://www.rust-lang.org/tools/install](https://www.rust-lang.org/tools/install).
+1. **Rust**: This project is built with Rust. If you don't have Rust installed,
+   you can install it from [https://www.rust-lang.org/tools/install](https://www.rust-lang.org/tools/install).
 
-2. **Cargo**: Cargo is Rust's package manager and build tool. It comes pre-installed with Rust.
+2. **Cargo**: Cargo is Rust's package manager and build tool.
+   It comes pre-installed with Rust.
 
-3. **Make**: This project uses a Makefile to simplify the build process. Make sure you have Make installed on your system.
+3. **Make**: This project uses a Makefile to simplify the build process.
+   Make sure you have Make installed on your system.
 
 ## Building the Project
 
-This project uses a Makefile to manage various build targets. Here are the main commands you can use:
+This project uses a Makefile / Justfile to manage various build targets.
 
 ### Desktop Build
 
@@ -47,9 +50,26 @@ make test-e2ee-lib
 make test-e2ee-doc
 ```
 
+To run tests via cross-rs
+(Cross compilation and do the tests in separate container):
+
+- Linux desktop X86_64 architecture:
+
+```bash
+make test-cross-x86_64-unknown-linux-gnu
+```
+
+- Windows X86_64 architecture:
+  (Bug: **bcryptprimitives.dll** (needed for encryption) not found.
+  Wine doesn't include it)
+
+```bash
+make test-cross-x86_64-pc-windows-gnu
+```
+
 ### Running Examples
 
-The project includes several examples demonstrating its functionality:
+The project includes several examples demonstrating its SDK functionality:
 
 ```bash
 make example-e2ee-simple
@@ -77,28 +97,52 @@ make help
 
 ## Project Structure
 
-```
-.
+```text
 ├── Cargo.lock
 ├── Cargo.toml
 ├── crates
-│   ├── cli
-│   │   └── e2ee
-│   └── lib
-│       └── e2ee
+│   ├── cli
+│   │   └── e2ee
+│   │       ├── Cargo.toml
+│   │       ├── files
+│   │       │   ├── private.pem
+│   │       │   └── public.pem
+│   │       └── src
+│   │           ├── error.rs
+│   │           └── main.rs
+│   └── lib
+│       └── e2ee
+│           ├── Cargo.toml
+│           ├── examples
+│           │   ├── e2ee_client_encrypt.rs
+│           │   ├── e2ee_key_generation.rs
+│           │   ├── e2ee_server_decrypt.rs
+│           │   ├── e2ee_server_encrypt.rs
+│           │   └── e2ee_simple.rs
+│           ├── files
+│           │   ├── private.pem
+│           │   └── public.pem
+│           └── src
+│               ├── client
+│               │   └── error.rs
+│               ├── client.rs
+│               ├── ffi.rs
+│               ├── lib.rs
+│               ├── server
+│               │   └── error.rs
+│               └── server.rs
+├── deny.toml
 ├── Justfile
+├── LICENSE-MIT
 ├── Makefile
 ├── README.md
 ├── rustfmt.toml
 └── rust-toolchain.toml
 ```
 
-The main SDK code is located in the `crates/lib/e2ee` directory. The `crates/cli/e2ee` directory contains command-line interface tools for the SDK.
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
+The main SDK code is located in the `crates/lib/e2ee` directory.
+The `crates/cli/e2ee` directory contains command-line interface tools for the SDK.
 
 ## License
 
-[Insert your chosen license here]
+[MIT](./LICENSE-MIT)
