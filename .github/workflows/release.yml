@@ -54,5 +54,5 @@ jobs:
     - name: Upload Artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: cli-artifacts
+        name: cli-artifacts-${{ matrix.os }}
         path: artifacts/
