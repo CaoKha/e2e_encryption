@@ -105,7 +105,7 @@ To clean all build artifacts (This is just deletes the `target` folder):
 make clean
 ```
 
-### Cross-compiling SDK to iOS and Android
+## Cross-compiling SDK to iOS and Android
 
 If you need to cross-compile the Rust library to iOS or Android ,
 [Dinghy](https://github.com/sonos/dinghy) is a great tool. (Since I am working
@@ -115,7 +115,7 @@ a set of tools and configurations to build Rust projects for mobile platforms.
 
 For more information on how to use dinghy, visit the [dinghy GitHub repository](https://github.com/sonos/dinghy).
 
-### Downloading Precompiled CLI Binaries
+## Downloading Precompiled CLI Binaries
 
 To use the precompiled binaries for the CLI, you can download the appropriate version
 for your operating system from the releases page. The available binaries are:
