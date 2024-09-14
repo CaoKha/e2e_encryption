@@ -150,3 +150,70 @@ impl PublicE2ee {
         &self.public_key_pem
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::PublicE2ee;
+    use std::fs;
+
+    const PUBLIC_KEY_PATH: &str =
+        concat!(env!("CARGO_MANIFEST_DIR"), "/files/public.pem");
+
+    #[test]
+    fn test_public_e2ee_new() {
+        // Read the public key from a file.
+        let public_key_pem = fs::read_to_string(PUBLIC_KEY_PATH)
+            .expect("Failed to read public key file");
+
+        // Attempt to create a new `PublicE2ee` instance.
+        let e2ee_client = PublicE2ee::new(public_key_pem.to_string());
+
+        // Assert that the instance creation is successful.
+        assert!(e2ee_client.is_ok(), "Failed to create PublicE2ee instance");
+    }
+
+    #[test]
+    fn test_public_e2ee_encrypt() {
+        // Read the public key from a file.
+        let public_key_pem = fs::read_to_string(PUBLIC_KEY_PATH)
+            .expect("Failed to read public key file");
+
+        // Create a new `PublicE2ee` instance.
+        let e2ee_client = PublicE2ee::new(public_key_pem.to_string())
+            .expect("Failed to create PublicE2ee instance");
+
+        // Message to encrypt.
+        let message = "Secret message";
+
+        // Attempt to encrypt the message.
+        let encrypted_message = e2ee_client.encrypt(message);
+
+        // Assert that encryption was successful.
+        assert!(encrypted_message.is_ok(), "Failed to encrypt message");
+
+        // Additional check: Ensure the encrypted message is not the same as the input message.
+        let encrypted_message_str = encrypted_message.unwrap();
+        assert_ne!(
+            message, encrypted_message_str,
+            "Encrypted message should differ from the original message"
+        );
+    }
+
+    #[test]
+    fn test_public_e2ee_get_public_key_pem() {
+        // Read the public key from a file.
+        let public_key_pem = fs::read_to_string(PUBLIC_KEY_PATH)
+            .expect("Failed to read public key file");
+
+        // Create a new `PublicE2ee` instance.
+        let e2ee_client = PublicE2ee::new(public_key_pem.clone())
+            .expect("Failed to create PublicE2ee instance");
+
+        // Retrieve the public key PEM and ensure it matches the original.
+        assert_eq!(
+            e2ee_client.get_public_key_pem(),
+            public_key_pem,
+            "Retrieved public key PEM does not match the original"
+        );
+    }
+}
