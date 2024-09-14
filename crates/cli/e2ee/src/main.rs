@@ -52,7 +52,7 @@ enum Commands {
 
     /// Decrypt a ciphertext using a private RSA key
     Decrypt {
-        #[arg(short, long, default_value = "private.pem")]
+        #[arg(long, default_value = "private.pem")]
         private_key_file_path: PathBuf,
         #[arg(short, long, default_value = "public.pem")]
         public_key_file_path: PathBuf,
