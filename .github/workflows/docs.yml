@@ -19,9 +19,6 @@ jobs:
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
 
-      - name: Install mdbook (optional, if you use it for additional docs)
-        run: cargo install mdbook
-
       - name: Build documentation
         run: cargo doc --no-deps --all-features
 
