@@ -11,7 +11,11 @@ const PRIVATE_KEY_PATH: &str =
     concat!(env!("CARGO_MANIFEST_DIR"), "/files/private.pem");
 
 #[derive(Parser)]
-#[command(author, version, about, long_about = None)]
+#[command(
+    name = "E2E encryption CLI",
+    version = "0.1.0",
+    about = "CLI tool to encrypt and decrypt messages using RSA encryption"
+)]
 struct Cli {
     #[command(subcommand)]
     command: Commands,
