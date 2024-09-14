@@ -49,7 +49,7 @@ jobs:
       run: |
         cargo bundle --release
         mkdir -p artifacts
-        mv target/release/bundle/msi/*.msi artifacts/
+        mv *.msi artifacts/
 
     - name: Upload Artifacts
       uses: actions/upload-artifact@v4
