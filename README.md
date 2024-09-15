@@ -42,7 +42,7 @@ The make command uses cargo under the hood in order to build the project.
 The executable and libraries are found in the `target` folder.
 You now can just run the executable from there and enjoy the CLI!
 For the SDK libraries, I have two options: publish the library to crates.io
-or you can just add the library to your _Cargo.toml_ file like this:
+or you can just add the library to your **Cargo.toml** file like this:
 
 ```toml
 # a commit with a particular tag
@@ -126,7 +126,7 @@ page. The available binaries are:
 
 ```text
   Windows: .msi installer
-  Linux: .deb package
+  Linux: .tar.xz archive
   MacOS: .tar.xz archive
 ```
 
@@ -135,19 +135,36 @@ page. The available binaries are:
 - **Windows**: Download the .msi file and run the installer to set up the CLI on
   your system.
 
-- **Linux**: Download the .deb package and install it using the following command:
-
-```bash
-
-sudo dpkg -i path/to/e2ee-cli_version.deb
-```
-
-- **MacOS**: Download the .tar.xz file, extract it, and place the binary in a directory
+- **Linux** or **MacOS**: Download the .tar.xz file, extract it,
+  and place the binary in a directory
   included in your PATH:
 
 ```bash
+# MacOS
 tar -xvf path/to/e2ee-cli-aarch64-apple-darwin.tar.xz
-sudo mv e2ee-cli /usr/local/bin/
+sudo mv e2ee-cli-aarch64-apple-darwin/e2ee-cli /usr/local/bin/
+```
+
+```bash
+# Linux
+tar -xvf path/to/e2ee-cli-x86_64-unknown-linux-gnu.tar.xz
+sudo mv e2ee-cli-x86_64-unknown-linux-gnu/e2ee-cli /usr/local/bin/
+```
+
+Or just run it directly from the extracted folder (recommended for testing purpose):
+
+```bash
+# MacOS
+tar -xvf path/to/e2ee-cli-aarch64-apple-darwin.tar.xz
+cd e2ee-cli-aarch64-apple-darwin
+./e2ee-cli -h
+```
+
+```bash
+# Linux
+tar -xvf path/to/e2ee-cli-x86_64-unknown-linux-gnu.tar.xz
+cd e2ee-cli-x86_64-unknown-linux-gnu
+./e2ee-cli -h
 ```
 
 ## CLI Usage
