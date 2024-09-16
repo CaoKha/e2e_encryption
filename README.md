@@ -42,12 +42,12 @@ make build-desktop-ffi-x86_64-unknown-linux-gnu
 The make command uses cargo under the hood in order to build the project.
 The executable and libraries are found in the `target` folder.
 You now can just run the executable from there and enjoy the CLI!
-For the SDK libraries, I have two options: publish the library to crates.io
+For the SDK libraries, I have two options: rather I publish the library to crates.io (which I do not)
 or you can just add the library to your **Cargo.toml** file like this:
 
 ```toml
 # a commit with a particular tag
-e2ee = { git = "https://github.com/CaoKha/e2e_encryption.git", tag = "0.1.1" }
+e2ee = { git = "https://github.com/CaoKha/e2e_encryption.git", tag = "0.1.2" }
 ```
 
 To see the full list of available make targets and their descriptions:
@@ -72,7 +72,8 @@ make test-e2ee-doc
 ```
 
 To run tests via cross-rs
-(Cross compilation and do the tests in separate container):
+(Cross compilation and do the tests in separate container using Docker or Podman.
+Checkout their [github](https://github.com/cross-rs/cross) for more details):
 
 - Linux desktop X86_64 architecture:
 
@@ -130,6 +131,9 @@ page. The available binaries are:
   Linux: .tar.xz archive
   MacOS: .tar.xz archive
 ```
+
+There are other options too, go to the [releases](https://github.com/CaoKha/e2e_encryption/releases)
+page for more details.
 
 ### Installation Instructions
 
@@ -230,6 +234,8 @@ Options:
 
 The main SDK code is located in the `crates/lib/e2ee` directory.
 The `crates/cli/e2ee` directory contains command-line interface tools for the SDK.
+Document is also available at [https://caokha.github.io/e2e_encryption/](https://caokha.github.io/e2e_encryption/).
+You can also find it in the about section of the project.
 
 ## License
 
