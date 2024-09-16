@@ -35,32 +35,46 @@ enum Commands {
         #[arg(
             long = "public-key-file-path",
             default_value = "public.pem",
-            help = "Path to public key file"
+            help = "Path to public key pem file"
         )]
         public_key_file_path: PathBuf,
         #[arg(
             long = "private-key-file-path",
             default_value = "private.pem",
-            help = "Path to private key file"
+            help = "Path to private key pem file"
         )]
         private_key_file_path: PathBuf,
     },
 
     /// Encrypt a message using a public RSA key
     Encrypt {
-        #[arg(short, long)]
+        #[arg(
+            short,
+            long,
+            default_value = "public.pem",
+            help = "Path to public key pem file"
+        )]
         public_key_file_path: PathBuf,
-        #[arg(short, long)]
+        #[arg(short, long, help = "Message to encrypt. Example: \"Hello, world!\"")]
         message: String,
     },
 
     /// Decrypt a ciphertext using a private RSA key
     Decrypt {
-        #[arg(long, default_value = "private.pem")]
+        #[arg(
+            long,
+            default_value = "private.pem",
+            help = "Path to private key pem file"
+        )]
         private_key_file_path: PathBuf,
-        #[arg(short, long, default_value = "public.pem")]
+        #[arg(
+            short,
+            long,
+            default_value = "public.pem",
+            help = "Path to public key pem file"
+        )]
         public_key_file_path: PathBuf,
-        #[arg(short, long)]
+        #[arg(short, long, help = "Ciphertext to decrypt. Example: \"Zm9vYmFy\"")]
         ciphertext: String,
     },
 }
