@@ -69,6 +69,7 @@
 
         <Package Id='*'
             Keywords='Installer'
+            Description='E2EE CLI'
             Manufacturer='Kha Nguyen'
             InstallerVersion='450'
             Languages='1033'

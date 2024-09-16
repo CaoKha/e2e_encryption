@@ -1,10 +1,12 @@
 [package]
 name = "e2ee-cli"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
 license = "MIT"
 authors = ["Kha Nguyen <nguyencaokha131995@gmail.com>"]
 repository = "https://github.com/CaoKha/e2e_encryption"
+description = "E2EE CLI"
+homepage = "https://github.com/CaoKha/e2e_encryption"
 
 [[bin]]
 name = "e2ee-cli"
