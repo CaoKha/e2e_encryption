@@ -25,13 +25,13 @@ clean:
 	cargo clean
 
 # Build targets (CLI and E2EE Lib)
-build-desktop-x86_64-unknown-linux-gnu:
+build-desktop-x86_64-unknown-linux-gnu: check-cross
 	cross build --release --target x86_64-unknown-linux-gnu
 
-build-desktop-ffi-x86_64-unknown-linux-gnu:
+build-desktop-ffi-x86_64-unknown-linux-gnu: check-cross
 	cross build --release --features ffi --target x86_64-unknown-linux-gnu
 
-build-desktop-x86_64-pc-windows-gnu:
+build-desktop-x86_64-pc-windows-gnu: check-cross
 	cross build --release --target x86_64-pc-windows-gnu
 
 # Test targets
@@ -43,10 +43,10 @@ test-e2ee-doc:
 
 test: test-e2ee-lib test-e2ee-doc
 
-test-cross-x86_64-unknown-linux-gnu:
+test-cross-x86_64-unknown-linux-gnu: check-cross
 	cross test -p e2ee --tests --target x86_64-unknown-linux-gnu
 
-test-cross-x86_64-pc-windows-gnu:
+test-cross-x86_64-pc-windows-gnu: check-cross
 	cross test -p e2ee --tests --target x86_64-pc-windows-gnu # bug: bcryptprimitives.dll (needed for encryption) not found (wine doesn't include it. but real windows system does)
 
 # Example targets (unchanged)
