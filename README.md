@@ -2,6 +2,7 @@
 
 [![Rust](https://github.com/CaoKha/e2e_encryption/actions/workflows/rust.yml/badge.svg)](https://github.com/CaoKha/e2e_encryption/actions/workflows/rust.yml)
 [![Release](https://github.com/CaoKha/e2e_encryption/actions/workflows/release.yml/badge.svg)](https://github.com/CaoKha/e2e_encryption/actions/workflows/release.yml)
+[![Docs](https://github.com/CaoKha/e2e_encryption/actions/workflows/docs.yml/badge.svg)](https://github.com/CaoKha/e2e_encryption/actions/workflows/docs.yml)
 
 This project is my attempt to build an End-to-End Encryption (E2EE)
 Software Development Kit (SDK) and Command Line Interface (CLI)
