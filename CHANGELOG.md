@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [unreleased]
+
+### 🐛 Bug Fixes
+
+- Fix make commands that need cross to be installed
+
 ## [0.1.2] - 2024-09-16
 
 ### 🚜 Refactor
